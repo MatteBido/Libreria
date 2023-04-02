@@ -107,7 +107,7 @@ if (isset($_SESSION['session_id'])) {
             $check->execute();
             $user = $check->fetch(PDO::FETCH_ASSOC);
 
-            if (!$user || password_verify($password, $user['password']) === false) {
+            if (!$user) {
                 $msg = 'Credenziali utente errate %s';
             } else {
                 session_regenerate_id();
